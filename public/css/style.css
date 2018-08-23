@@ -5,6 +5,7 @@
 body{
   font-family: 'Open Sans', sans-serif;
   background-color: #f4f8fb;
+  color: #4a4a4a;
 }
 
 .base-section{
@@ -33,7 +34,30 @@ body{
   Home Styles
 **/
 
+.search-bar{
+  font-size: 14px;
+}
 
+.btn--search, .btn--filters{
+  margin-left: 40px;
+  background: transparent;
+}
+
+.btn--filters{
+  margin-left: 0;
+  margin-right: 5px;
+}
+
+.input--search{
+  background: transparent;
+  max-width: 385px;
+  width: 100%;
+  border: none;
+  border-bottom: 3px solid #9b9b9b;
+  border-radius: 3px;
+  height: 51px;
+  padding: 13px 0;
+}
 
 /**
   Header Styles
