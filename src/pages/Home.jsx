@@ -10,6 +10,7 @@ class Home extends Component {
         <div className="container base-container">
           <h1 className="title">Character</h1>
           <SearchBar />
+          <br /><br />
           <ListOfCharacters />
         </div>
       </section>

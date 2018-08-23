@@ -59,6 +59,43 @@ body{
   padding: 13px 0;
 }
 
+
+
+/**
+  Card Styles
+**/
+
+.card{
+  max-width: 290px;
+  max-height: 220px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  border: solid 1px #d8dde6;
+}
+
+.card-img--circle{
+  border-radius: 50%;
+  margin-top: 15px;
+}
+
+.card-body{
+  padding-top: 5px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.card-title{
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.card-subtitle{
+  color: #ed1d24;
+  font-size: 14px;
+  margin-bottom: 35px;
+}
+
+
 /**
   Header Styles
 **/
