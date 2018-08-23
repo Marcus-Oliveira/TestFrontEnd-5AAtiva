@@ -8,7 +8,7 @@ class ListOfCharacters extends Component {
     }
     render() { 
         return (
-            <div style={{display: 'flex', justifyContent: 'space-around'}}>
+            <div style={{display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap'}}>
                 <Card />
                 <Card />
             </div>           

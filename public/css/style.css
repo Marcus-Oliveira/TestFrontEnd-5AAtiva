@@ -65,10 +65,10 @@ body{
 
 .card{
   max-width: 290px;
-  max-height: 220px;
   border-radius: 8px;
   background-color: #ffffff;
   border: solid 1px #d8dde6;
+  margin-bottom: 10px;
 }
 
 .card-img--circle{
