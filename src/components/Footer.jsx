@@ -7,7 +7,12 @@ class Footer extends Component {
     }
     render() { 
         return (
-            <div>Aqui vem um lindo footer YAY</div>
+            <footer className="base-footer">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br />
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+            </footer>
         );
     }
 }

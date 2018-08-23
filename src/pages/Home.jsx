@@ -1,12 +1,18 @@
 import React, { Component } from 'react'
+import SearchBar from './sections/home/SearchBar.jsx'
+import ListOfCharacters from './sections/home/ListOfCharacters.jsx'
 
 class Home extends Component {
 
   render() {
     return (
-      <div>
-        Hey
-      </div>
+      <section className="base-section">
+        <div className="container base-container">
+          <h1 className="title">Character</h1>
+          <SearchBar />
+          <ListOfCharacters />
+        </div>
+      </section>
     )
   }
 

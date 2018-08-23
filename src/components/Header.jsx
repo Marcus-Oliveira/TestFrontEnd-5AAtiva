@@ -7,7 +7,9 @@ class Header extends Component {
     }
     render() { 
         return (
-            <div>Aqui vem um lindo logo YAY</div>
+            <header className="base-header">
+                <img src="/img/marvelLogo.svg.png" className="img-fluid marvel-logo float-left" />
+            </header>
         );
     }
 }
