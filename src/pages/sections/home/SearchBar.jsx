@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 
 class SearchBar extends Component {
+
     constructor(props) {
         super(props);
         this.state = { 
             searchValue: '',
-            orderBy: 'ascending', // or descending
+            orderBy: 'name', // or -name
             imgOrderBy: '/img/arrow-down.svg',
             filterLabel: 'A-Z'
          }
@@ -15,12 +16,12 @@ class SearchBar extends Component {
         event.preventDefault();
         this.setState({
             searchValue: event.target.value
-        })
+        })        
     }
 
     searchCharacter(event){
         event.preventDefault();
-        console.log(this.state.searchValue)
+        this.props.changeSearchValue(this.state.searchValue)
     }
 
     changeOrderBy(event){
@@ -29,13 +30,13 @@ class SearchBar extends Component {
         let orderBy = ''
         let filterLabel = ''
 
-        if(this.state.orderBy == 'ascending'){
+        if(this.state.orderBy == 'name'){
             arrowDirection = 'up'
-            orderBy = 'descending'
+            orderBy = '-name'
             filterLabel = 'Z-A'
         }else{
             arrowDirection = 'down'
-            orderBy = 'ascending'
+            orderBy = 'name'
             filterLabel = 'A-Z'
         }
         
@@ -44,7 +45,10 @@ class SearchBar extends Component {
             orderBy: orderBy,
             filterLabel: filterLabel
         })
-        
+
+        //Chamando a função changeOrderBy da Home
+        //Para assim alterar o state lá e recarregar a lista
+        this.props.changeOrderBy()        
     }
 
     render() { 

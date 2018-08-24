@@ -15,7 +15,8 @@ class Home extends Component {
       offset: 0,
       perPage: 12,
       total: 0,
-      orderBy: 'name' // 'name' = A-Z or '-name' = Z-A 
+      orderBy: 'name', // 'name' = A-Z or '-name' = Z-A ,
+      searchValue: ''
     }
   }
 
@@ -35,7 +36,12 @@ class Home extends Component {
         '&ts=' + ts + 
         '&hash=' + hash + 
         '&limit=' + this.state.perPage + 
-        '&offset=' + this.state.offset
+        '&offset=' + this.state.offset + 
+        '&orderBy=' + this.state.orderBy
+    
+    if(this.state.searchValue.length > 0){
+      urlAPI += '&nameStartsWith=' + this.state.searchValue
+    }
 
     fetch(urlAPI, {
       method: 'get'
@@ -73,12 +79,34 @@ class Home extends Component {
     });
   };
 
+  changeOrderBy(){
+    console.log('Pronto pra mudar a ordenação YAY')
+    let orderBy = 'name'
+    if(this.state.orderBy == 'name'){
+      orderBy = '-name'
+    }else{
+      orderBy = 'name'
+    }
+    
+    this.setState({orderBy: orderBy}, () => {
+      this.loadCharactersFromServer();
+    });
+  }
+
+  changeSearchValue(searchValue){
+    console.log('Pronto pra buscar por nome YAY')
+    console.log(searchValue)
+    this.setState({searchValue: searchValue}, () => {
+      this.loadCharactersFromServer();
+    });
+  }
+
   render() {
     return (
       <section className="base-section">
         <div className="container base-container">
           <h1 className="title">Character</h1>
-          <SearchBar />
+          <SearchBar changeOrderBy={this.changeOrderBy.bind(this)} changeSearchValue={this.changeSearchValue.bind(this)} />
           <br /><br />
           <div id="react-paginate">
             <ListOfCharacters data={this.state.data}/>

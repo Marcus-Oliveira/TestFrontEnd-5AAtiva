@@ -68,7 +68,8 @@ body{
   border-radius: 8px;
   background-color: #ffffff;
   border: solid 1px #d8dde6;
-  margin-bottom: 10px;
+  border-bottom: 2px solid #ed1d24;
+  height: 100%;
 }
 
 .card-img--circle{

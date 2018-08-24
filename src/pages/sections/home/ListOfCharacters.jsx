@@ -21,7 +21,7 @@ class ListOfCharacters extends Component {
       let cardDescription = character.description
 
       return (
-        <div key={index}>
+        <div key={index} style={{marginBottom: '31px'}}>
             <Card cardImage={cardImage} cardTitle={cardTitle} cardDescription={cardDescription} />
         </div>        
       )
@@ -32,8 +32,8 @@ class ListOfCharacters extends Component {
   render() {
     let characters = this.renderCharaters()
     return (
-      <div style={{display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap'}}>
-        {characters}
+      <div style={{display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap'}}>
+        {characters.length > 0 ? characters : 'No character found'}
       </div> 
     )
   }
