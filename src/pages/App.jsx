@@ -9,7 +9,7 @@ import {
 
 //Páginas para as rotas
 import Home from './Home.jsx'
-//import ErrorPage from './ErrorPage.jsx'
+import ErrorPage from './ErrorPage.jsx'
 
 //Configurando rotas com layouts diferentes
 import BlankLayout from '../routers/BlankLayout.jsx'
@@ -39,7 +39,7 @@ class App extends Component {
         <div>
           <Switch>
             <DefaultLayout exact path="/" component={Home} />
-            {/** <Route component={ErrorPage} /> **/}
+            <Route component={ErrorPage} />
           </Switch>
         </div>
       </Router>
