@@ -11,40 +11,8 @@ let definirUrlAPIsConformeAmbinete = () => {
     //das APIs conforme o ambiente da aplicação
 
     //Configurar o estado inicial com os endereços de DEV
-    let APIs = {
-        'marvelAPI'  : 'https://appsegurosgatewaydev.azure-api.net/',
-    }
-
-    /**
-        Subistituindo os endereços das APIs conforme os ambientes
-        Estou utilizando o environment como base. Cada ambiente
-        Dev/localhost, hml, e prod.        
-    */
-    switch(environment) {
-        case 'development':
-            return {
-                ...APIs, 
-                'marvelAPI'  : 'https://gateway.marvel.com:443/v1/public/'
-            }
-            break
-        case 'hml':
-            return {
-                ...APIs, 
-                'marvelAPI'  : 'https://gateway.marvel.com:443/v1/public/'
-            }
-            break
-        case 'production':
-            return {
-                ...APIs, 
-                'marvelAPI'  : 'https://gateway.marvel.com:443/v1/public/'
-            }
-            break
-        default:
-            return {
-                ...APIs, 
-                'appseguros'  : 'https://gateway.marvel.com:443/v1/public/'
-            }
-            break
+    return{
+        'marvelAPI'  : 'https://gateway.marvel.com:443/v1/public/',
     }
 }
 
