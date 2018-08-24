@@ -2,11 +2,9 @@
 // Por exemplo variáveis de ambiente
 // Funções de uso global
 
-// Definiando a URL das apis conforme os ambientes
+// Definiando a URL das APIs conforme os ambientes
 // dev/localhost, hml ou prod
 let definirUrlAPIsConformeAmbinete = () => {
-    let environment = process.env.NODE_ENV
-    
     //Nesta variável srerão definidos as urls
     //das APIs conforme o ambiente da aplicação
 

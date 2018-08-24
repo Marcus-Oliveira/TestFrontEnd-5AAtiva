@@ -25,7 +25,7 @@
   },
   "scripts": {
     "dev": "webpack-dev-server --progress --colors --host localhost --inline --hot --history-api-fallback --content-base public",
-    "build": "webpack --config webpack.js",
+    "build": "webpack --config webpack.config.js",
     "stats": "webpack --json > stats.json"
   },
   "author": "Marcus Vinicius Dantas Oliveira",

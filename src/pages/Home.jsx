@@ -18,7 +18,7 @@ class Home extends Component {
       orderBy: 'name', // 'name' = A-Z or '-name' = Z-A ,
       searchValue: '',
       searching: true,
-      noMatches: true
+      noMatches: false
     }
   }
 
@@ -27,8 +27,7 @@ class Home extends Component {
     
     //NEXT STEPS
     //Colocar algum loading da vida
-    //E um animate do jquery para voltar ao topo
-    //ao carregar os personagens
+    //E um animate do jquery para voltar ao topo ao carregar os personagens
 
     let ts = new Date().getTime()
     let hash = md5(ts+privateKey+publicKey)
@@ -53,7 +52,7 @@ class Home extends Component {
       return response.json()
     })
     .then(data => {
-      //Pegando a resposta tratada
+      //Pegando a resposta que interessa
       let result = data.data
       
       if(result.count>0){
@@ -66,6 +65,8 @@ class Home extends Component {
         })
       }else{
         this.setState({
+          total: 0,
+          pageCount: 0,
           searching: false,
           noMatches: true
         })

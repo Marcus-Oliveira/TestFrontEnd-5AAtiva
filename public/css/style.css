@@ -137,6 +137,10 @@ Pagination style
   justify-content: center;
 }
 
+li.arrows.disabled {
+  cursor: not-allowed;
+}
+
 /**
   Header Styles
 **/

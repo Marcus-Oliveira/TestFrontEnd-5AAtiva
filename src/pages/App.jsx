@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-//Router = roteador em si
-//Route = uma rota da aplicação
 import {
   BrowserRouter as Router,
   Route,
@@ -12,7 +10,6 @@ import Home from './Home.jsx'
 import ErrorPage from './ErrorPage.jsx'
 
 //Configurando rotas com layouts diferentes
-import BlankLayout from '../routers/BlankLayout.jsx'
 import DefaultLayout from '../routers/DefaultLayout.jsx'
 
 class App extends Component {
@@ -22,6 +19,7 @@ class App extends Component {
   }
 
   componentDidMount(){
+    //removendo loading inicial da aplicação
     const ele = document.getElementById('ipl-progress-indicator')
     if(ele){
       // fade out
@@ -35,13 +33,11 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
-        <div>
-          <Switch>
-            <DefaultLayout exact path="/" component={Home} />
-            <Route component={ErrorPage} />
-          </Switch>
-        </div>
+      <Router>        
+        <Switch>
+          <DefaultLayout exact path="/" component={Home} />
+          <Route component={ErrorPage} />
+        </Switch>        
       </Router>
     )
   }

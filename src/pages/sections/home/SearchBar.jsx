@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 class SearchBar extends Component {
 
     constructor(props) {
-        super(props);
-        this.state = { 
+        super(props)
+        this.state = {
             searchValue: '',
             orderBy: 'name', // or -name
             imgOrderBy: '/img/arrow-down.svg',
@@ -12,18 +12,15 @@ class SearchBar extends Component {
          }
     }
 
-    onChangeHandler(event){
-        event.preventDefault();
+    searchCharacter(event){
+        event.preventDefault()
+        //Chamando a função changeSearchValue da Home
+        //Para assim alterar o state lá e recarregar a lista
         this.props.changeSearchValue(event.target.value)
     }
 
-    searchCharacter(event){
-        event.preventDefault();
-        //this.props.changeSearchValue(this.state.searchValue)
-    }
-
     changeOrderBy(event){
-        event.preventDefault();
+        event.preventDefault()
         let arrowDirection = 'down'
         let orderBy = ''
         let filterLabel = ''
@@ -51,11 +48,10 @@ class SearchBar extends Component {
 
     render() { 
         const state = this.state
-
         return (
             <nav className="search-bar">
                 <form className="form-inline">
-                    <input className="input input--search" type="search" placeholder="Characters" onChange={this.onChangeHandler.bind(this)} />
+                    <input className="input input--search" type="search" placeholder="Characters" onChange={this.searchCharacter.bind(this)} />
                     <div onClick={this.changeOrderBy.bind(this)} style={{cursor: 'pointer'}}>
                         <button className="btn btn--search" type="button"><img src="/img/filter.svg" /></button>
                         <span className="filter-order-by">{state.filterLabel}</span>
