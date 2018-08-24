@@ -1,41 +1,37 @@
 import React, { Component } from 'react';
 
 class SearchBar extends Component {
+
     constructor(props) {
-        super(props);
-        this.state = { 
+        super(props)
+        this.state = {
             searchValue: '',
-            orderBy: 'ascending', // or descending
+            orderBy: 'name', // or -name
             imgOrderBy: '/img/arrow-down.svg',
             filterLabel: 'A-Z'
          }
     }
 
-    onChangeHandler(event){
-        event.preventDefault();
-        this.setState({
-            searchValue: event.target.value
-        })
-    }
-
     searchCharacter(event){
-        event.preventDefault();
-        console.log(this.state.searchValue)
+        event.preventDefault()
+        //Chamando a função changeSearchValue da Home
+        //Para assim alterar o state lá e recarregar a lista
+        this.props.changeSearchValue(event.target.value)
     }
 
     changeOrderBy(event){
-        event.preventDefault();
+        event.preventDefault()
         let arrowDirection = 'down'
         let orderBy = ''
         let filterLabel = ''
 
-        if(this.state.orderBy == 'ascending'){
+        if(this.state.orderBy == 'name'){
             arrowDirection = 'up'
-            orderBy = 'descending'
+            orderBy = '-name'
             filterLabel = 'Z-A'
         }else{
             arrowDirection = 'down'
-            orderBy = 'ascending'
+            orderBy = 'name'
             filterLabel = 'A-Z'
         }
         
@@ -44,19 +40,23 @@ class SearchBar extends Component {
             orderBy: orderBy,
             filterLabel: filterLabel
         })
-        
+
+        //Chamando a função changeOrderBy da Home
+        //Para assim alterar o state lá e recarregar a lista
+        this.props.changeOrderBy()        
     }
 
     render() { 
         const state = this.state
-
         return (
             <nav className="search-bar">
                 <form className="form-inline">
-                    <input className="input input--search" type="search" placeholder="Characters" onChange={this.onChangeHandler.bind(this)} />
-                    <button className="btn btn--search" type="button" onClick={this.searchCharacter.bind(this)}><img src="/img/filter.svg" /></button>
-                    <span className="filter-order-by">{state.filterLabel}</span>
-                    <button className="btn btn--filters" type="button" onClick={this.changeOrderBy.bind(this)}><img src={state.imgOrderBy} /></button>                    
+                    <input className="input input--search" type="search" placeholder="Characters" onChange={this.searchCharacter.bind(this)} />
+                    <div onClick={this.changeOrderBy.bind(this)} style={{cursor: 'pointer'}}>
+                        <button className="btn btn--search" type="button"><img src="/img/filter.svg" /></button>
+                        <span className="filter-order-by">{state.filterLabel}</span>
+                        <button className="btn btn--filters" type="button"><img src={state.imgOrderBy} /></button>                    
+                    </div>
                 </form>
             </nav>
         );

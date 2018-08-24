@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import { Route } from "react-router-dom"
 
-//Components da estrutura de default de layout
-//Header, Navbar e Footer
+//Components da estrutura do layout
+//Header, Footer
 import Footer from '../components/Footer.jsx'
 import Header from '../components/Header.jsx'
 
 class Default extends Component {
 
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
   }
 
   render() {
