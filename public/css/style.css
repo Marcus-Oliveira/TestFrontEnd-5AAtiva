@@ -1,0 +1,180 @@
+/**
+  Base Styles
+**/
+
+body{
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f4f8fb;
+  color: #4a4a4a;
+}
+
+.base-section{
+  margin: 35px 0;
+}
+
+.base-container{
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px 0 rgba(69, 91, 99, 0.08);
+  padding: 35px;
+}
+
+.title{
+  font-size: 36px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.61;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ed1d24;
+}
+
+/**
+  Home Styles
+**/
+
+.search-bar{
+  font-size: 14px;
+}
+
+.btn--search, .btn--filters{
+  margin-left: 0;
+  background: transparent;
+}
+
+.btn--filters{
+  margin-left: 0;
+  margin-right: 5px;
+}
+
+.input--search{
+  background: transparent;
+  max-width: 385px;
+  width: 100%;
+  border: none;
+  border-bottom: 3px solid #9b9b9b;
+  border-radius: 3px;
+  height: 51px;
+  padding: 13px 0;
+}
+
+/**
+  Card Styles
+**/
+
+.card{
+  max-width: 245px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  border: solid 1px #d8dde6;
+  border-bottom: 2px solid #ed1d24;
+  height: 100%;
+}
+
+.card-img--circle{
+  border-radius: 50%;
+  margin-top: 15px;
+  width: 60px;
+  height: 60px;
+}
+
+.card-body{
+  padding-top: 5px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.card-title{
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.card-subtitle{
+  color: #ed1d24;
+  font-size: 14px;
+  margin-bottom: 35px;
+}
+
+/**
+Pagination style
+**/
+.pagination{
+  max-width: 235px;
+  margin: auto;
+  align-items: center;
+  justify-content: space-between; 
+}
+
+.pagination li,
+.pagination li.active{
+  width: 40px;
+  height: 26px;
+  text-align: center;
+  cursor: pointer;  
+}
+
+.pagination a{
+  color: #4a4a4a;
+  font-size: 14px;
+  text-decoration: none;
+  width: 100%;
+  display: block;
+}
+
+.pagination li.active{
+  border-bottom: 2px solid #9b9b9b;
+  border-radius: 3px;  
+}
+
+.arrows{
+  background-color: #ffffff;
+  border: solid 1px #c2cbd2;
+  width: 22px!important;
+  height: 45px!important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+li.arrows.disabled {
+  cursor: not-allowed;
+}
+
+/**
+  Header Styles
+**/
+
+.base-header {
+  height: 95px;
+  background-color: #ed1d24;
+}
+
+.marvel-logo {
+  max-width: 240px;
+  width: 100%;
+  max-height: 95px;
+  height: auto;
+}
+
+
+
+/**
+  Footer Styles
+**/
+
+.base-footer{
+  background-color: #edeef0;
+  font-size: 14px;
+  color: #4a4a4a;
+  height: 105px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: solid 7px #ed1d24;  
+}
+
+.base-footer p{
+  margin: 0;
+  text-align: center;
+}
