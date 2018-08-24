@@ -39,7 +39,7 @@ body{
 }
 
 .btn--search, .btn--filters{
-  margin-left: 40px;
+  margin-left: 0;
   background: transparent;
 }
 
@@ -96,6 +96,46 @@ body{
   margin-bottom: 35px;
 }
 
+/**
+Pagination style
+**/
+.pagination{
+  max-width: 235px;
+  margin: auto;
+  align-items: center;
+  justify-content: space-between; 
+}
+
+.pagination li,
+.pagination li.active{
+  width: 40px;
+  height: 26px;
+  text-align: center;
+  cursor: pointer;  
+}
+
+.pagination a{
+  color: #4a4a4a;
+  font-size: 14px;
+  text-decoration: none;
+  width: 100%;
+  display: block;
+}
+
+.pagination li.active{
+  border-bottom: 2px solid #9b9b9b;
+  border-radius: 3px;  
+}
+
+.arrows{
+  background-color: #ffffff;
+  border: solid 1px #c2cbd2;
+  width: 22px!important;
+  height: 45px!important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /**
   Header Styles

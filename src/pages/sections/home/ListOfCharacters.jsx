@@ -30,10 +30,20 @@ class ListOfCharacters extends Component {
   }
 
   render() {
-    let characters = this.renderCharaters()
+    let charactersList = this.renderCharaters()
+    let dataToRender = '';
+
+    if(this.props.searching === true){
+      dataToRender = 'LOADING...'
+    } else if(this.props.noMatches === true){
+      dataToRender = 'No character found'
+    }else{
+      dataToRender = charactersList
+    }
+
     return (
       <div style={{display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap'}}>
-        {characters.length > 0 ? characters : 'No character found'}
+        {dataToRender}
       </div> 
     )
   }

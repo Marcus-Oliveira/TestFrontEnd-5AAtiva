@@ -14,14 +14,12 @@ class SearchBar extends Component {
 
     onChangeHandler(event){
         event.preventDefault();
-        this.setState({
-            searchValue: event.target.value
-        })        
+        this.props.changeSearchValue(event.target.value)
     }
 
     searchCharacter(event){
         event.preventDefault();
-        this.props.changeSearchValue(this.state.searchValue)
+        //this.props.changeSearchValue(this.state.searchValue)
     }
 
     changeOrderBy(event){
@@ -58,9 +56,11 @@ class SearchBar extends Component {
             <nav className="search-bar">
                 <form className="form-inline">
                     <input className="input input--search" type="search" placeholder="Characters" onChange={this.onChangeHandler.bind(this)} />
-                    <button className="btn btn--search" type="button" onClick={this.searchCharacter.bind(this)}><img src="/img/filter.svg" /></button>
-                    <span className="filter-order-by">{state.filterLabel}</span>
-                    <button className="btn btn--filters" type="button" onClick={this.changeOrderBy.bind(this)}><img src={state.imgOrderBy} /></button>                    
+                    <div onClick={this.changeOrderBy.bind(this)} style={{cursor: 'pointer'}}>
+                        <button className="btn btn--search" type="button"><img src="/img/filter.svg" /></button>
+                        <span className="filter-order-by">{state.filterLabel}</span>
+                        <button className="btn btn--filters" type="button"><img src={state.imgOrderBy} /></button>                    
+                    </div>
                 </form>
             </nav>
         );

@@ -16,7 +16,9 @@ class Home extends Component {
       perPage: 12,
       total: 0,
       orderBy: 'name', // 'name' = A-Z or '-name' = Z-A ,
-      searchValue: ''
+      searchValue: '',
+      searching: true,
+      noMatches: true
     }
   }
 
@@ -53,11 +55,22 @@ class Home extends Component {
     .then(data => {
       //Pegando a resposta tratada
       let result = data.data
-      this.setState({
-        total: result.total,
-        data: result.results,
-        pageCount: Math.ceil(result.total / this.state.perPage)
-      })
+      
+      if(result.count>0){
+        this.setState({
+          total: result.total,
+          data: result.results,
+          pageCount: Math.ceil(result.total / this.state.perPage),
+          searching: false,
+          noMatches: false
+        })
+      }else{
+        this.setState({
+          searching: false,
+          noMatches: true
+        })
+      }
+
     })
     .catch(error => {
       console.log(error)
@@ -80,7 +93,6 @@ class Home extends Component {
   };
 
   changeOrderBy(){
-    console.log('Pronto pra mudar a ordenação YAY')
     let orderBy = 'name'
     if(this.state.orderBy == 'name'){
       orderBy = '-name'
@@ -88,15 +100,13 @@ class Home extends Component {
       orderBy = 'name'
     }
     
-    this.setState({orderBy: orderBy}, () => {
+    this.setState({orderBy: orderBy, searching: true}, () => {
       this.loadCharactersFromServer();
     });
   }
 
   changeSearchValue(searchValue){
-    console.log('Pronto pra buscar por nome YAY')
-    console.log(searchValue)
-    this.setState({searchValue: searchValue}, () => {
+    this.setState({searchValue: searchValue, searching: true}, () => {
       this.loadCharactersFromServer();
     });
   }
@@ -109,14 +119,16 @@ class Home extends Component {
           <SearchBar changeOrderBy={this.changeOrderBy.bind(this)} changeSearchValue={this.changeSearchValue.bind(this)} />
           <br /><br />
           <div id="react-paginate">
-            <ListOfCharacters data={this.state.data}/>
-            <ReactPaginate previousLabel={"previous"}
-                        nextLabel={"next"}
-                        breakLabel={<a href="">...</a>}
+            <ListOfCharacters data={this.state.data} searching={this.state.searching} noMatches={this.state.noMatches} />
+            <ReactPaginate previousLabel={<img src="/img/arrow-left.svg" />}
+                        nextLabel={<img src="/img/arrow-right.svg" />}
+                        previousClassName={"arrows"}
+                        nextClassName={"arrows"}
+                        breakLabel={<a href="#">de</a>}
                         breakClassName={"break-me"}
                         pageCount={this.state.pageCount}
-                        marginPagesDisplayed={2}
-                        pageRangeDisplayed={5}
+                        marginPagesDisplayed={1}
+                        pageRangeDisplayed={0}
                         onPageChange={this.handlePageClick}
                         containerClassName={"pagination"}
                         subContainerClassName={"pages pagination"}
