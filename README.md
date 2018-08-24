@@ -1,7 +1,9 @@
 TestFrontEnd-5AAtiva
 
-Passos necessários
+Passos necessários:
+
 Clonar
+
 Entrar na pasta
 
 npm install
