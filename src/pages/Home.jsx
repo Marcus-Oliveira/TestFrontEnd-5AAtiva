@@ -3,7 +3,7 @@ import SearchBar from './sections/home/SearchBar.jsx'
 import ListOfCharacters from './sections/home/ListOfCharacters.jsx'
 import ReactPaginate from 'react-paginate';
 import md5 from 'md5'
-import {urlAPIs} from '../config.js'
+import {urlAPIs, publicKey, privateKey} from '../config.js'
 
 class Home extends Component {
 
@@ -14,19 +14,23 @@ class Home extends Component {
       data: [],
       offset: 0,
       perPage: 12,
-
       total: 0,
-      orderBy: 'name' // A-Z or -name Z-A 
+      orderBy: 'name' // 'name' = A-Z or '-name' = Z-A 
     }
   }
 
+  //Carregando os personagens via marvel api
   loadCharactersFromServer(){
-    var publicKey = 'ab23d2daf8aa099290ffea13df22aca0'
-    var privateKey = 'f4a90808506c3d9e21dab7a23d720b2136c22861'        
-    var ts = new Date().getTime()
-    var hash = md5(ts+privateKey+publicKey)
     
-    var urlAPI = urlAPIs.marvelAPI + 
+    //NEXT STEPS
+    //Colocar algum loading da vida
+    //E um animate do jquery para voltar ao topo
+    //ao carregar os personagens
+
+    let ts = new Date().getTime()
+    let hash = md5(ts+privateKey+publicKey)
+    
+    let urlAPI = urlAPIs.marvelAPI + 
         'characters?apikey=' + publicKey + 
         '&ts=' + ts + 
         '&hash=' + hash + 
@@ -59,7 +63,8 @@ class Home extends Component {
   }
 
   handlePageClick = (data) => {
-    console.log('clicou aqui')
+    //Definindo o offset de acordo 
+    //com a páginação selecionada * quantidade de itens por página
     let selected = data.selected;
     let offset = Math.ceil(selected * this.state.perPage);
 

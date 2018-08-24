@@ -17,3 +17,7 @@ let definirUrlAPIsConformeAmbinete = () => {
 }
 
 export const urlAPIs = definirUrlAPIsConformeAmbinete()
+
+export const publicKey = 'ab23d2daf8aa099290ffea13df22aca0'
+
+export const privateKey = 'f4a90808506c3d9e21dab7a23d720b2136c22861'

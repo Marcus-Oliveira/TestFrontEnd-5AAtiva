@@ -14,8 +14,6 @@ class ListOfCharacters extends Component {
   }
 
   renderCharaters(){
-    console.log('hora de renderizar a porra toda')
-    console.log(this.props.data)
     let charactersNodes = this.props.data.map(function(character, index) {
       
       let cardImage = character.thumbnail.path + '.' + character.thumbnail.extension  
